@@ -1,0 +1,27 @@
+\documentclass[a4paper]{article}
+\title{TDT4136 Assignemt 4}
+\author{Kim Rune Solstad}
+\usepackage{listings}
+\begin{document}
+\maketitle
+\section*{2. Description of keyaspects}
+The key aspects are representation, objective function and neighbor generation. The state is represented in a class called State. What makes each state different is the vector containing the coordinates of all the eggs in the state. When applying a move operation to the state, coordinates and direction is passed as input arguments. If an egg is found with the coordinates that where passed, that egg is moved one space in the desired direction. 
+\\
+The goal is set to 0, thus the puzzlesolving algorithm is descending from the hills instead of climbing them. When a pit is found, 20 moves forward on the same height is allowed before the eggs are randomized. The heuristic value is set to one point for each violations of the rules. This means that if the following spaces where occupied 0,0 1,1 and 1,0 it would count as four violations if k where set to 1.
+\\
+Up to four neighbors per egg are generated. Boundaries of the carton and other eggs are the limiting factor when less are generated. If no neighbors are removed, each egg will have one neighbor in the north, one neighbor in the south, one neighbor in the east and one in the west. 
+\section*{3. Diagrams}
+Here is the output for the different variations
+\subsection*{M=N=5 and K=2}
+According to the Time program, it took 0.395 secounds to solve.
+\lstinputlisting{output1_0-395s.txt}
+\subsection*{M=N=6 and K=2}
+According to the Time program, it tool 0.456 secounds to solve. 
+\lstinputlisting{output2_0-456s.txt}
+\subsection*{M=N=8 and K=1}
+This looks like the 8 queen puzzle.
+According to the Time program, it tool 14.318 secounds to solve. 
+\lstinputlisting{output3_14-318s.txt}
+
+
+\end{document}
